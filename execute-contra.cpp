@@ -36,7 +36,7 @@ int main (int argc, char *argv[]){
 			sprintf(mensagem, "./showg -A -p%d-%d cub%02d.g6 > entrada%d.txt", (i * k) + 1, (i + 1) * k, n_vertices, i + 1);
 			system(mensagem);
 			
-			sprintf(mensagem, "./contra-exemplo %d %d < entrada%d.txt > saidaContraExemplo%dv%d.out &", n_vertices, n_grafos, i + 1,n_vertices, i + 1);
+			sprintf(mensagem, "./contra-exemplo %d %d < entrada%d.txt > saidaContraExemplo%dv%d.out &", n_vertices, k, i + 1,n_vertices, i + 1);
 			system(mensagem);
 			
 		}
@@ -44,7 +44,7 @@ int main (int argc, char *argv[]){
 		sprintf(mensagem, "./showg -A -p%d-%d cub%02d.g6 > entrada%d.txt", (i * k) + 1, ((i + 1) * k) + (n_grafos % n_threads), n_vertices, i + 1);
 		system(mensagem);
 			
-		sprintf(mensagem, "./contra-exemplo %d %d < entrada%d.txt > saidaContraExemplo%dv%d.out &", n_vertices, n_grafos, i + 1,n_vertices, i + 1);
+		sprintf(mensagem, "./contra-exemplo %d %d < entrada%d.txt > saidaContraExemplo%dv%d.out &", n_vertices, k + (n_grafos % n_threads), i + 1,n_vertices, i + 1);
 		system(mensagem);
 	}
 	
